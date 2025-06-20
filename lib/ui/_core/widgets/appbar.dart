@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/ui/_core/bag_provider.dart';
+import 'package:myapp/ui/checkout/checkout_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:badges/badges.dart' as badges;
 
@@ -17,7 +18,19 @@ AppBar getAppBar({required BuildContext context, String? title}) {
           bagProvider.dishesOnBag.length.toString(),
           style: TextStyle(fontSize: 10),
         ),
-        child: IconButton(onPressed: () {}, icon: Icon(Icons.shopping_basket)),
+        child: IconButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return CheckoutScreen();
+                },
+              ),
+            );
+          },
+          icon: Icon(Icons.shopping_basket),
+        ),
       ),
     ],
   );
